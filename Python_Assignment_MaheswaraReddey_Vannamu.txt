@@ -154,8 +154,10 @@ while True:
 
 #   c. Show Total Fruits in the List
 print(Fruit_list)
-    
 
+#------------------------------------------------------------
+#3. Create Foll. Information in the Tuple (atleast 5 Employees)
+#1. EmpId - Phone Numbers (One Employee can have Multiple Numbers )
 
 employees = (
     (101, ["9876543210", "9123456789"]),
