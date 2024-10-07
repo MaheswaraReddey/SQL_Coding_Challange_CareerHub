@@ -94,13 +94,29 @@ DD,MM,YY=input("Enter the date of birth as dd-mm-yy :").split("-")
 Password=User_name[0:4]+YY+"$"
 print(Password)
 
+#Code for Password encryption
+
+def encrypt_password(password, shift=3):
+    encrypted_password = ""
+    for char in password:
+        if char.isalpha():
+            ascii_offset = 65 if char.isupper() else 97
+            encrypted_char = chr((ord(char) - ascii_offset + shift) % 26 + ascii_offset)
+            encrypted_password += encrypted_char
+        else:
+            encrypted_password += char
+    return encrypted_password
+
+
+encrypted_password = encrypt_password(Password)
+print("Encrypted Password:", encrypted_password)
 
 
 
 
 #3. Write Python Program to do the following :
 # 1. Display Area of Circle and Parallelogram
-#4. Accept Integer and find Square root of Integer
+
 
 Radius=int(input("Enter the radius of the circle :"))
 length,breadth=map(int,input("Enter the sides of Parallelogram :").split())
@@ -108,6 +124,14 @@ circle_area=3.14*Radius*Radius
 parallelogram_area=length*breadth
 print("Area of given circle = {} Sq.units".format(circle_area))
 print("Area of given Parallelogram = {} Sq.units".format(parallelogram_area))
+
+#4. Accept Integer and find Square root of Integer
+
+import math
+
+number = int(input("Enter an integer: "))
+square_root = math.sqrt(number)
+print(f"Square root of {number}: {square_root}")
 
 
 #--------------------------------------------------------------------------------
