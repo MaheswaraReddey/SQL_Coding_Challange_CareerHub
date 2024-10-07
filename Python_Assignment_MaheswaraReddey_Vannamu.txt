@@ -1,0 +1,288 @@
+# Input / Output
+#1. Accept Empid,EmpName,Monthly_Salary,Tot_Deductions, Tot_Allowances and Display Employee Name and Salary in hand
+
+Empid=input("Enter the EmpID :")
+EmpName=input("Enter the employee name :")
+Monthly_Salary=int(input("Enter the total monthly salary :"))
+Tot_Deductions=int(input("Enter the deductions from salary :"))
+Tot_Allowances=int(input("Enter the Allowances amount :"))
+print(EmpName)
+print("Salary of the employee in hand :",Monthly_Salary-Tot_Deductions-Tot_Allowances)
+
+#---------------------------------------------------------------------------------------------
+
+
+
+#if Conditions :
+#1. Accept 3 integers from the User and Display Maximum
+#2. Accept 3 integers from USer and display Minimum
+
+# Maximum of 3 Numbers
+num1,num2,num3=map(int,input("Enter the 3 numbers :").split())
+if(num1>num2 & num1>num3):
+    print("The greatest number is ",num1)
+elif(num2>num3):
+    print("The greatest number is ",num2)
+else :
+    print("The greatest number is ",num3)
+
+#Minimum of 3 Numbers
+num1,num2,num3=map(int,input("Enter the 3 numbers :").split())
+if(num1<num2 & num1<num3):
+    print("The smallest number is ",num1)
+elif(num2<num3):
+    print("The smallest number is ",num2)
+else :
+    print("The smallest number is ",num3)
+
+
+#----------------------------------------------------------------
+
+#loops (Solve without Using Functions if any)
+#1. Accept Integers from User till Users Choice and do the Following:
+#1. Sum of all Integers
+#2. Average of all Integers
+#3. Maximum Integer from all
+#4. Minimum Integer from all
+
+Numbers_List=input("Enter the numbers :").split()
+Sum=0
+j=0
+for i in Numbers_List:
+    Sum=Sum+int(i)
+    j=j+1
+Avg=Sum/j
+print("Sum of the given Numbers is : ",Sum)
+print("Average of the given Numbers is : ",Avg)
+print("Maximum integer from the given list is :",max(Numbers_List))
+print("Minimum integer from the given list is :",min(Numbers_List))
+
+
+#2. Accept a String from User an do the following :
+#1. Find the Length
+#2. Display String in reverse
+#3. Display every alternate Character in Upper Case
+#4. Find out No of Vowels in the String
+#5. Accept Username and Date of Birth (dd-mon-yy) from User.
+# Create a Password String which will be combination of 1st 4 letters of username and last 2 digits of Date of Birth followed by $ sign
+#6. Encrypt the String and return Encrypted String (Assume your Algorithm)
+
+
+User_string=input("Enter the string :")
+Length=0
+Alternate_Uppercase=""
+Count=0
+for i in User_string:
+    Length=Length+1
+    if Length%2 != 0:
+        Alternate_Uppercase=Alternate_Uppercase+i.upper()
+    else:
+        Alternate_Uppercase=Alternate_Uppercase+i
+    if i in ["a","e","i","o","u","A","E","I","O","U"]:
+        Count+=1
+print("Length of the given string is :",Length)
+Reversed_string=""
+while Length>0:
+    Reversed_string=Reversed_string+User_string[Length-1]
+    Length=Length-1
+print("The reversed string for the given string is :",Reversed_string)
+print("The string with alternate letters as uppercase is :",Alternate_Uppercase)
+print("Count of all the vowels in the given string is :",Count)
+
+User_name=input("Enter the User name :")
+DD,MM,YY=input("Enter the date of birth as dd-mm-yy :").split("-")
+Password=User_name[0:4]+YY+"$"
+print(Password)
+
+
+
+
+
+#3. Write Python Program to do the following :
+# 1. Display Area of Circle and Parallelogram
+#4. Accept Integer and find Square root of Integer
+
+Radius=int(input("Enter the radius of the circle :"))
+length,breadth=map(int,input("Enter the sides of Parallelogram :").split())
+circle_area=3.14*Radius*Radius
+parallelogram_area=length*breadth
+print("Area of given circle = {} Sq.units".format(circle_area))
+print("Area of given Parallelogram = {} Sq.units".format(parallelogram_area))
+
+
+#--------------------------------------------------------------------------------
+
+#B) Session 3 / 4
+#List / Tuples / Dictionary / Sets
+#1. Create a List for the following :
+#    a. Accept Fruits Name and their price(per kg)
+#    b. Fruits Name should be at odd index position in the List.Price at even index position
+
+
+Fruits=[]
+fruit_count=int(input("Enter the no.of fruits in the list :"))
+for i in range(fruit_count):
+    name=input("Enter the fruit name : ")
+    price=float(input("Enter the price : "))
+    Fruits.append(name)
+    Fruits.append(price)
+print(Fruits)
+    
+
+#2. Customer will buy fruits from you (Show him the Fruits Menu)
+#Write a Program to
+#   a. Calculate Total Price of Fruits Bought .(Assume price for 1 kg )
+
+
+Fruit_list=[["Apple", 100],["Banana", 50],["Orange", 80],["Mango", 120],["Grapes", 150]]
+print(Fruit_list)
+P1=float(input("Enter the qunatity for Apple: "))
+P2=float(input("Enter the qunatity for Banana : "))
+P3=float(input("Enter the qunatity for Orange : "))
+P4=float(input("Enter the qunatity for Mango : "))
+P5=float(input("Enter the qunatity forn Grapes : "))
+Price=P1*100+P2*50+P3*80+P4*120+P5*150
+print("Total amount for the furits = ",Price)
+
+#   b. Add New Fruits in the List
+while True:
+    new_fruit=input("Enter the new fruit name or END to exit : ")
+    if new_fruit.upper()=="END":
+        break
+    new_price=int(input("Enter the price for the above fruit : "))
+    Fruit_list.append([new_fruit,new_price])
+
+#   c. Show Total Fruits in the List
+print(Fruit_list)
+    
+
+
+employees = (
+    (101, ["9876543210", "9123456789"]),
+    (102, ["9988776655"]),
+    (103, ["9871234567", "9321654321"]),
+    (104, ["9900112233"]),
+    (105, ["9812345678"]),
+)
+
+# Function to find an employee by EmpId
+def find_employee(emp_id):
+    for emp in employees:
+        if emp[0] == emp_id:
+            return emp
+    return None
+
+# 1. Accept EmpId from User and Display Phone Numbers
+emp_id = int(input("Enter Employee ID to view phone numbers: "))
+employee = find_employee(emp_id)
+
+if employee:
+    print(f"Phone numbers for Employee ID {emp_id}: {employee[1]}")
+else:
+    print("Employee not found!")
+
+# 2. Update Employee phone number
+emp_id_to_update = int(input("\nEnter Employee ID to update phone numbers: "))
+employee_to_update = find_employee(emp_id_to_update)
+
+if employee_to_update:
+    new_phone_number = input(f"Enter new phone number for Employee ID {emp_id_to_update}: ")
+    employee_to_update[1].append(new_phone_number)  # Add the new phone number to the list
+    print(f"Updated phone numbers for Employee ID {emp_id_to_update}: {employee_to_update[1]}")
+else:
+    print("Employee not found!")
+
+
+4. Store the Following info in Dictionary
+Department Name and their Employee Names
+Note : One Department can have multiple Employees
+
+Perform the Following Operations :
+              1. Add a New Department Name and Employees in that Department
+               If a New Department Name doesnot Exists
+                 2. Accept Dept Name from User and List all Employees
+                If Dept Name Exists in the Database
+               3. Add a New Employee in Existing Department
+               4. Delete Existing Employee From Department
+
+
+
+
+
+departments = {
+    "HR": ["Alice", "Bob"],
+    "IT": ["Charlie", "David"],
+    "Finance": ["Eva", "Frank"],
+}
+
+# 1. Add a New Department and Employees
+dept_name = input("Enter new department name: ")
+
+if dept_name not in departments:
+    new_employees = input("Enter employees ").split(",")
+    departments[dept_name] = [emp.strip() for emp in new_employees]
+    print(departments)
+else:
+    print({dept_name}," already exists.")
+
+# 2. List All Employees of a Department
+dept_name = input("\nEnter department name to view employees: ")
+
+if dept_name in departments:
+    print(f"Employees in {dept_name}: {departments[dept_name]}")
+else:
+    print(f"Department '{dept_name}' not found.")
+
+# 3. Add a New Employee to an Existing Department
+dept_name = input("\nEnter department name to add a new employee: ")
+
+if dept_name in departments:
+    new_employee = input("Enter the new emp name: ")
+    departments[dept_name].append(new_employee)
+    print(f"Employee '{new_employee}' added to {dept_name}. Updated employees: {departments[dept_name]}")
+else:
+    print(f"Department '{dept_name}' does not exist.")
+
+# 4. Delete an Employee from a Department
+dept_name = input("\nEnter department name to delete an employee from: ")
+
+if dept_name in departments:
+    employee_to_remove = input("Enter the name of the employee  ")
+    if employee_to_remove in departments[dept_name]:
+        departments[dept_name].remove(employee_to_remove)
+        print(f"Employee '{employee_to_remove}' removed from {dept_name}. Updated employees: {departments[dept_name]}")
+    else:
+        print(f"Employee '{employee_to_remove}' not found in {dept_name}.")
+else:
+    print(f"Department '{dept_name}' does not exist.")
+
+
+5. Create Following two Sets
+             1. Fruit_Salesman1
+             2. Fruit_Salesman2
+               Create Fruits for both Salesmans
+               Perform the Following Operation
+               1. Find out Common Fruits with both Salesman
+               2. List Extra Fruits with Both Salesman
+               3. List Total Fruits with both Salesman
+
+
+fruit_salesman1 = set(input("Enter fruits for Salesman 1 : ").split(","))
+fruit_salesman2 = set(input("Enter fruits for Salesman 2 : ").split(","))
+
+print(fruit_salesman1)
+print(fruit_salesman2)
+
+# 1. Find out Common Fruits with both Salesman
+common_fruits = fruit_salesman1.intersection(fruit_salesman2)   # Intersection of sets
+print("\nCommon fruits sold by both Salesman: ",common_fruits)
+
+# 2. List Extra Fruits with Both Salesman
+extra_fruits_salesman1 = fruit_salesman1 - fruit_salesman2  # Fruits only in Salesman1
+extra_fruits_salesman2 = fruit_salesman2 - fruit_salesman1  # Fruits only in Salesman2
+print("Extra fruits sold by Salesman 1: ",extra_fruits_salesman1)
+print("Extra fruits sold by Salesman 2: ",extra_fruits_salesman2)
+
+# 3. List Total Fruits with both Salesman
+total_fruits = fruit_salesman1.union(fruit_salesman2)  # Union of sets
+print("\nTotal fruits sold by both Salesmen: ",total_fruits)
